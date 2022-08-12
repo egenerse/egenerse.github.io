@@ -1,4 +1,6 @@
-export function calculateWinner(squares) {
+type BoxValues = string | null;
+
+export function calculateWinner(squares: BoxValues[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
