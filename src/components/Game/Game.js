@@ -1,7 +1,8 @@
 import React from "react";
-import "../index.css";
+import "./Game.css";
 import { Board } from "./Board";
 import { calculateWinner } from "../../utils/gameUtils";
+import { GirlWithABalloon } from "../cartoonCharacter";
 
 // interface historyObject {
 //   squares?: BoxValues[]
@@ -138,18 +139,22 @@ export class Game extends React.Component {
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            handleClick={(i) => this.handleClick(i)}
-          />
+      <>
+        <div className="game">
+          <div className="game-board">
+            <Board
+              squares={current.squares}
+              handleClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
+
+        <GirlWithABalloon />
+      </>
     );
   }
 }
