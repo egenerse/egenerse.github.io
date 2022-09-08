@@ -1,8 +1,9 @@
 import "./GirlWithABalloon.css";
+import Draggable from "react-draggable"; // The default
 
 export function GirlWithABalloon() {
   return (
-    <>
+    <Draggable>
       <article
         role="img"
         aria-label="cartoon of a little girl holding a balloon"
@@ -36,6 +37,6 @@ export function GirlWithABalloon() {
       {/* <a href="https://youtu.be/lbyM7h1KGHg" id="youtube" target="_blank">
         <span>See how this drawing was coded</span>
       </a> */}
-    </>
+    </Draggable>
   );
 }

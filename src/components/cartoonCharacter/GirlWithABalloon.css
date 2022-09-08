@@ -9,12 +9,12 @@ article {
   --hair-dark: #852;
   --ribbon: #fe8;
   --balloon: #c47;
-  width: 80vmin;
+  width: 60vmin;
   aspect-ratio: 1;
   position: absolute;
   color: #632;
-  top: 50%;
-  left: 50%;
+  top: 5%;
+  left: 5%;
   transform: translate(-50%, -59%);
 }
 
