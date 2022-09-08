@@ -32,11 +32,15 @@ export function GirlWithABalloon() {
             <div class="ribbon"></div>
           </div>
         </section>
+        <a
+          href="https://youtu.be/lbyM7h1KGHg"
+          id="youtube"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>See how this drawing was coded</span>
+        </a>
       </article>
-
-      {/* <a href="https://youtu.be/lbyM7h1KGHg" id="youtube" target="_blank">
-        <span>See how this drawing was coded</span>
-      </a> */}
     </Draggable>
   );
 }
