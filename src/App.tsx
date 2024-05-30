@@ -5,6 +5,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import Home from "./pages/Home";
 
 const AppContainer = styled.div`
+  min-height: 100vh;
   background: linear-gradient(135deg, #f3ec78, #af4261);
 `;
 

@@ -10,3 +10,7 @@ body {
 * {
   box-sizing: inherit;
 }
+
+#root {
+  overflow: hidden;
+}

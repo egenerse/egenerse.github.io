@@ -13,10 +13,12 @@ interface Card {
 
 const Board = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 100px);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
   margin: 20px auto;
-  width: fit-content;
+  justify-content: center;
+  width: calc(100vw - 40px); /* Ensure some padding inside the container */
+  max-width: 800px; /* Optional: to limit the maximum width */
 `;
 
 const CardButton = styled.button<{
