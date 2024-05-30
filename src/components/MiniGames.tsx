@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import TicTacToe from "../games/tic-tac-toe";
+import TicTacToe from "../games/TicTacToe";
+import MemoryGame from "../games/Memory";
 
 const GameContainer = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ const MiniGames = () => {
     <GameContainer>
       <h2>Mini Games</h2>
       <TicTacToe />
+      <MemoryGame />
     </GameContainer>
   );
 };

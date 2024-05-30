@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-
-const GameContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-`;
+import ResetButton from "./components/ResetButton";
+import GameContainer from "./components/GameContainer";
+import Header from "./components/Header";
 
 const Status = styled.div`
   margin-bottom: 1rem;
   font-size: 1.5rem;
 `;
 
-const Header = styled.div`
-  font-weight: bold;
-  font-size: 2rem;
-`;
 const BoardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 100px);
@@ -33,20 +24,6 @@ const SquareButton = styled.button<{ isWinningSquare: boolean }>`
   justify-content: center;
   background-color: ${(props) =>
     props.isWinningSquare ? "lightgreen" : "white"};
-`;
-
-const ResetButton = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  &:hover {
-    background-color: #0056b3;
-  }
 `;
 
 interface SquareProps {
@@ -119,14 +96,14 @@ const TicTacToe: React.FC = () => {
 
   return (
     <GameContainer>
-      <Header>Tic Tac Toe</Header>
+      <Header title="Tic Tac Toe" />
       <Status>{status}</Status>
       <Board
         squares={squares}
         onClick={handleClick}
         winningSquares={winningSquares}
       />
-      {winner && <ResetButton onClick={handleReset}>Reset Game</ResetButton>}
+      <ResetButton onClick={handleReset} />
     </GameContainer>
   );
 };
