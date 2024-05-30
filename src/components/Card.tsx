@@ -3,12 +3,11 @@ import styled from "@emotion/styled";
 
 const CardContainer = styled.div`
   background: white;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 0rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   max-width: 400px;
-  width: 100%;
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -57,9 +56,14 @@ const Card: React.FC<CardProps> = ({ title, subtitle, content, logo }) => {
         {logo && <Logo src={logo} alt={logo} />}
       </CardHeader>
       {subtitle && <CardSubtitle>{subtitle}</CardSubtitle>}
-      {content.map((text, index) => (
-        <CardContent key={index}>{text}</CardContent>
-      ))}
+
+      <ul>
+        {content.map((text, index) => (
+          <li key={index}>
+            <CardContent>{text}</CardContent>
+          </li>
+        ))}
+      </ul>
     </CardContainer>
   );
 };

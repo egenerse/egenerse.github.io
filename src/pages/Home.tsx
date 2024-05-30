@@ -9,10 +9,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 5rem;
   text-align: center;
   width: 100%;
-  z-index: 10;
 `;
 
 const Home: React.FC = () => {

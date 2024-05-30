@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #f3ec78, #af4261);
-  min-height: 100vh;
 `;
 
 const ProgressBar = styled(motion.div)`
@@ -14,10 +13,10 @@ const ProgressBar = styled(motion.div)`
   top: 0;
   left: 0;
   right: 0;
-  height: 10px;
+  height: 0.8rem;
   background: #7d00a3;
   transform-origin: 0%;
-  z-index: 20;
+  z-index: 1;
 `;
 
 const App: React.FC = () => {
