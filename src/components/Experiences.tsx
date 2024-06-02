@@ -13,7 +13,6 @@ const Grid = styled.div`
   gap: 1rem;
   width: 90%;
   max-width: 900px;
-  margin-top: 2rem;
 `;
 
 const Experiences: React.FC = () => {
