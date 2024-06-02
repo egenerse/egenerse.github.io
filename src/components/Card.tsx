@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Z_INDEXS } from "../utils/constants";
 
 const CardContainer = styled.div`
   background: white;
@@ -10,7 +11,7 @@ const CardContainer = styled.div`
   max-width: 400px;
   box-sizing: border-box;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  z-index: ${Z_INDEXS.card};
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import { Z_INDEXS } from "../utils/constants";
 
 const NavbarContainer = styled(motion.nav)`
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   background: #e77650;
@@ -15,19 +16,41 @@ const NavbarContainer = styled(motion.nav)`
   justify-content: center;
   align-items: center;
   transition: transform 0s ease;
+  z-index: ${Z_INDEXS.navbar};
 `;
+
+const SCROLL_DISTANCE_TO_TRIGGER_NAVBAR_ANIMATION_IN_PX = 25;
 
 const Navbar = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollUpDistance, setScrollUpDistance] = useState(0);
+  const [scrollDownDistance, setScrollDownDistance] = useState(0);
 
   const controlNavbar = () => {
-    if (window.scrollY > lastScrollY) {
-      setShow(false);
+    const scrollY = window.scrollY;
+
+    if (scrollY > lastScrollY) {
+      // User is scrolling down
+      setScrollDownDistance((prev) => prev + (scrollY - lastScrollY));
+      if (
+        scrollDownDistance > SCROLL_DISTANCE_TO_TRIGGER_NAVBAR_ANIMATION_IN_PX
+      ) {
+        setShow(false);
+      }
+      setScrollUpDistance(0);
     } else {
-      setShow(true);
+      // User is scrolling up
+      setScrollUpDistance((prev) => prev + (lastScrollY - scrollY));
+      if (
+        scrollUpDistance > SCROLL_DISTANCE_TO_TRIGGER_NAVBAR_ANIMATION_IN_PX
+      ) {
+        setShow(true);
+      }
+      setScrollDownDistance(0);
     }
-    setLastScrollY(window.scrollY);
+
+    setLastScrollY(scrollY);
   };
 
   useEffect(() => {
@@ -35,7 +58,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", controlNavbar);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, scrollUpDistance]);
 
   return (
     <NavbarContainer
