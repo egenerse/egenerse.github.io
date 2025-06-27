@@ -60,7 +60,7 @@ const Card: React.FC<CardProps> = ({ title, subtitle, content, logo }) => {
 
       <ul>
         {content.map((text, index) => (
-          <li key={index}>
+          <li key={index} style={{ textAlign:'start'}}>
             <CardContent>{text}</CardContent>
           </li>
         ))}

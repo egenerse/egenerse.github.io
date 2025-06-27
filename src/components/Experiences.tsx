@@ -22,9 +22,11 @@ const Experiences: React.FC = () => {
         title="Working Student"
         subtitle="MVST, Munich, Germany (11/2023 - Present)"
         content={[
-          "Developing a production-ready React Native application from scratch with a 5-member team.",
-          "Implementing core components, screens, and API integrations, ensuring high performance and usability.",
-          "Coordinating with clients and team members to align project goals and deliverables.",
+          "Contributed to production-ready client projects across web and mobile platforms in a consulting environment.",
+          "Delivered new features, UI components, API integrations, and bug fixes, ensuring performance, scalability, and maintainability.",
+          "Worked closely with teams, including product managers, designers, and developers from different clients.",
+          "Maintained and enhanced existing projects to support evolving business requirements.",
+          "Technologies: Next.js, React, React Native, Flutter, NestJS, TypeScript, PostgreSQL, Storyblok, Strapi, Docker.",
         ]}
         logo={mvstLogo}
       />

@@ -2,15 +2,28 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   margin: 2rem;
-  margin-top: 5rem;
+  display:flex;
+  align-items:center;
+  justify-contnet:center;
+  flex-direction: column;
 `;
 const Header = styled.div`
   font-weight: bold;
 `;
 
+const NameField = styled.div`
+font-size: 2rem;
+  font-weight: bold;
+margin-bottom:0.5rem;
+
+`
+
 export default function PersonalData() {
   return (
     <Container>
+      <NameField >
+        Ege Nerse
+      </NameField>
       <Header>
         Munich, Germany —{" "}
         <a href="mailto:egenerse@gmail.com">egenerse@gmail.com</a> — (+49) 157
