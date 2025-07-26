@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ResetButton from "./components/ResetButton";
+import { ResetButton } from "./components/ResetButton";
 import GameContainer from "./components/GameContainer";
 import Header from "./components/Header";
 
@@ -11,10 +11,10 @@ interface SquareProps {
 
 const Square: React.FC<SquareProps> = ({ value, onClick, isWinningSquare }) => {
   return (
-    <button 
-      onClick={onClick} 
+    <button
+      onClick={onClick}
       className={`w-24 h-24 text-2xl flex items-center justify-center ${
-        isWinningSquare ? 'bg-green-200' : 'bg-white'
+        isWinningSquare ? "bg-green-200" : "bg-white"
       }`}
     >
       {value}

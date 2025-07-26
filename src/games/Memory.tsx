@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import ResetButton from "./components/ResetButton";
+import { ResetButton } from "./components/ResetButton";
 import GameContainer from "./components/GameContainer";
 import Header from "./components/Header";
 
@@ -92,13 +92,13 @@ const MemoryGame: React.FC = () => {
             onClick={() => handleCardClick(index)}
             disabled={isCheckingRef.current || card.isMatched}
             className={`w-24 h-24 text-2xl border border-black ${
-              gameHasFinished 
-                ? 'bg-green-500' 
-                : card.isFlipped || card.isMatched 
-                  ? 'bg-gray-100' 
-                  : 'bg-white'
+              gameHasFinished
+                ? "bg-green-500"
+                : card.isFlipped || card.isMatched
+                ? "bg-gray-100"
+                : "bg-white"
             } ${
-              card.isMatched ? 'cursor-default' : 'cursor-pointer'
+              card.isMatched ? "cursor-default" : "cursor-pointer"
             } disabled:cursor-not-allowed`}
           >
             {card.isFlipped || card.isMatched ? card.pairId : ""}
