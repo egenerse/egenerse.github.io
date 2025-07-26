@@ -90,7 +90,7 @@ export const Navbar = () => {
           );
         })}
         <a
-          href="/src/assets/documents/EgeCV.pdf"
+          href="/EgeCV.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-gray-300 font-medium"
