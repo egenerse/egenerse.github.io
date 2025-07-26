@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 
 html,
 body {
@@ -8,7 +8,13 @@ body {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   scroll-behavior: smooth;
-  background-color: rgb(250, 213, 169);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Dark mode styles */
+html.dark  {
+  background-color: #0f172a; /* dark slate background */
 }
 
 * {
@@ -16,5 +22,11 @@ body {
 }
 
 #root {
-  overflow: hidden;
+  min-height: 100vh;
+  background: inherit;
+}
+
+/* Add smooth scrolling and proper spacing for fixed navbar */
+html {
+  scroll-padding-top: 4rem; /* Account for fixed navbar height */
 }

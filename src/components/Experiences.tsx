@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "./Card";
-import mvstLogo from "../assets/mvst.png";
-import abbLogo from "../assets/abb.png";
-import gopuffLogo from "../assets/gopuff.png";
-import medyasoftLogo from "../assets/medyasoft.png";
-import hesapkurduLogo from "../assets/hesapkurdu.png";
+import { Card } from "./";
+import mvstLogo from "@/assets/images/mvst.png";
+import abbLogo from "@/assets/images/abb.png";
+import gopuffLogo from "@/assets/images/gopuff.png";
+import medyasoftLogo from "@/assets/images/medyasoft.png";
+import hesapkurduLogo from "@/assets/images/hesapkurdu.png";
 
-const Experiences: React.FC = () => {
+export const Experiences: React.FC = () => {
   return (
     <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 w-[90%] max-w-4xl">
       <Card
@@ -64,5 +64,3 @@ const Experiences: React.FC = () => {
     </div>
   );
 };
-
-export default Experiences;

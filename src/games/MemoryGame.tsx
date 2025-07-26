@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ResetButton } from "./components/ResetButton";
-import GameContainer from "./components/GameContainer";
-import Header from "./components/Header";
+import { ResetButton, GameContainer, Header } from "./components";
 
 interface Card {
   id: number;
@@ -10,7 +8,7 @@ interface Card {
   isMatched: boolean;
 }
 
-const MemoryGame: React.FC = () => {
+export const MemoryGame: React.FC = () => {
   const [board, setBoard] = useState(createNewGame());
   const firstCardRef = useRef<number | null>(null);
   const secondCardRef = useRef<number | null>(null);
@@ -91,12 +89,12 @@ const MemoryGame: React.FC = () => {
             key={index}
             onClick={() => handleCardClick(index)}
             disabled={isCheckingRef.current || card.isMatched}
-            className={`w-24 h-24 text-2xl border border-black ${
+            className={`w-24 h-24 text-2xl border-2 transition-all duration-200 ${
               gameHasFinished
-                ? "bg-green-500"
+                ? "bg-green-500 dark:bg-green-600 border-green-600 dark:border-green-500 text-white"
                 : card.isFlipped || card.isMatched
-                ? "bg-gray-100"
-                : "bg-white"
+                ? "bg-gray-100 dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-slate-100"
+                : "bg-white dark:bg-slate-800 border-gray-400 dark:border-slate-500 hover:bg-gray-50 dark:hover:bg-slate-700"
             } ${
               card.isMatched ? "cursor-default" : "cursor-pointer"
             } disabled:cursor-not-allowed`}
@@ -110,8 +108,6 @@ const MemoryGame: React.FC = () => {
     </GameContainer>
   );
 };
-
-export default MemoryGame;
 
 const createNewGame = (): Card[] =>
   Array(12)

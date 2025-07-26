@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { ResetButton } from "./components/ResetButton";
-import GameContainer from "./components/GameContainer";
-import Header from "./components/Header";
+import { ResetButton, GameContainer, Header } from "./components";
 
 interface SquareProps {
   value: string | null;
@@ -13,8 +11,10 @@ const Square: React.FC<SquareProps> = ({ value, onClick, isWinningSquare }) => {
   return (
     <button
       onClick={onClick}
-      className={`w-24 h-24 text-2xl flex items-center justify-center ${
-        isWinningSquare ? "bg-green-200" : "bg-white"
+      className={`w-24 h-24 text-2xl flex items-center justify-center border-2 font-bold transition-all duration-200 ${
+        isWinningSquare
+          ? "bg-green-200 dark:bg-green-700 border-green-400 dark:border-green-500 text-green-800 dark:text-green-100"
+          : "bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-500 text-gray-900 dark:text-slate-100 hover:bg-gray-50 dark:hover:bg-slate-600"
       }`}
     >
       {value}
@@ -41,7 +41,7 @@ const Board: React.FC<{
   );
 };
 
-const TicTacToe: React.FC = () => {
+export const TicTacToe: React.FC = () => {
   const [squares, setSquares] = useState<string[]>(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [winningSquares, setWinningSquares] = useState<number[]>([]);
@@ -79,7 +79,9 @@ const TicTacToe: React.FC = () => {
   return (
     <GameContainer>
       <Header title="Tic Tac Toe" />
-      <div className="mb-4 text-2xl">{status}</div>
+      <div className="mb-4 text-2xl font-semibold text-gray-800 dark:text-slate-200">
+        {status}
+      </div>
       <Board
         squares={squares}
         onClick={handleClick}
@@ -109,5 +111,3 @@ const calculateWinner = (squares: string[]) => {
   }
   return null;
 };
-
-export default TicTacToe;

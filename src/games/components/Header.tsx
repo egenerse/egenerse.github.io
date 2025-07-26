@@ -4,8 +4,10 @@ interface Props {
   title: string;
 }
 
-const Header: React.FC<Props> = ({ title }) => {
-  return <div className="font-bold text-2xl">{title}</div>;
+export const Header: React.FC<Props> = ({ title }) => {
+  return (
+    <div className="font-bold text-2xl text-gray-900 dark:text-slate-100">
+      {title}
+    </div>
+  );
 };
-
-export default Header;

@@ -1,17 +1,41 @@
 import React from "react";
-import { PersonalData } from "../components/PersonalData";
-import MiniGames from "../components/MiniGames";
-import Experiences from "../components/Experiences";
+import {
+  MiniGames,
+  Experiences,
+  Section,
+  Text,
+  Contact,
+  About,
+} from "@/components";
 
-
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   return (
-    <main className="flex flex-col items-center justify-center">
-      <PersonalData />
-      <Experiences />
-      <MiniGames />
+    <main className="flex flex-col items-center justify-center" id="home">
+      <Section id="about" variant="secondary">
+        <About />
+      </Section>
+
+      <Section id="experiences" variant="primary">
+        <div className="w-full max-w-6xl px-8">
+          <Text variant="heading" className="text-center mb-12">
+            Experience
+          </Text>
+          <Experiences />
+        </div>
+      </Section>
+
+      <Section id="games" variant="secondary">
+        <div className="w-full max-w-6xl px-8">
+          <Text variant="heading" className="text-center mb-12">
+            Mini Games
+          </Text>
+          <MiniGames />
+        </div>
+      </Section>
+
+      <Section id="contact" variant="primary" className="min-h-0.5">
+        <Contact />
+      </Section>
     </main>
   );
 };
-
-export default Home;

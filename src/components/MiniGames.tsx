@@ -1,8 +1,6 @@
+import { TicTacToe, MemoryGame } from "@/games";
 
-import TicTacToe from "../games/TicTacToe";
-import MemoryGame from "../games/Memory";
-
-const MiniGames = () => {
+export const MiniGames = () => {
   return (
     <div className="flex flex-col items-center justify-center pt-4">
       <h2>Mini Games</h2>
@@ -11,5 +9,3 @@ const MiniGames = () => {
     </div>
   );
 };
-
-export default MiniGames;
