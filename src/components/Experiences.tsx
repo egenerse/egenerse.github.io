@@ -61,7 +61,7 @@ export const Experiences: React.FC = () => {
       location: "Remote, Istanbul/USA",
       period: "Sep 2021 - Sep 2022",
       description: [
-        "Led cross-platform mobile frontend development for consumer goods delivery app",
+        "Worked in cross-platform mobile frontend development for consumer goods delivery app",
         "Collaborated with international team to deliver high-quality React Native application",
         "Took ownership of complete user flows, components, and page implementations",
         "Conducted thorough code reviews ensuring accuracy and efficiency",
