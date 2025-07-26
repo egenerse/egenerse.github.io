@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
 import Card from "./Card";
 import mvstLogo from "../assets/mvst.png";
 import abbLogo from "../assets/abb.png";
@@ -7,17 +6,9 @@ import gopuffLogo from "../assets/gopuff.png";
 import medyasoftLogo from "../assets/medyasoft.png";
 import hesapkurduLogo from "../assets/hesapkurdu.png";
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  width: 90%;
-  max-width: 900px;
-`;
-
 const Experiences: React.FC = () => {
   return (
-    <Grid>
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 w-[90%] max-w-4xl">
       <Card
         title="Working Student"
         subtitle="MVST, Munich, Germany (11/2023 - Present)"
@@ -70,7 +61,7 @@ const Experiences: React.FC = () => {
         ]}
         logo={hesapkurduLogo}
       />
-    </Grid>
+    </div>
   );
 };
 

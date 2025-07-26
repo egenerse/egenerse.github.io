@@ -1,20 +1,5 @@
-import styled from "@emotion/styled";
 import React from "react";
 import { motion } from "framer-motion";
-
-const Button = styled(motion.button)`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 interface Props {
   onClick: () => void;
@@ -22,13 +7,14 @@ interface Props {
 
 const ResetButton: React.FC<Props> = ({ onClick }) => {
   return (
-    <Button
+    <motion.button
       onClick={onClick}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
+      className="mt-4 px-4 py-2 text-base bg-blue-600 text-white border-none rounded cursor-pointer hover:bg-blue-700"
     >
       Reset
-    </Button>
+    </motion.button>
   );
 };
 

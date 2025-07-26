@@ -1,34 +1,12 @@
-import styled from "@emotion/styled";
-
-const Container = styled.div`
-  margin: 2rem;
-  display:flex;
-  align-items:center;
-  justify-contnet:center;
-  flex-direction: column;
-`;
-const Header = styled.div`
-  font-weight: bold;
-`;
-
-const NameField = styled.div`
-font-size: 2rem;
-  font-weight: bold;
-margin-bottom:0.5rem;
-
-`
-
-export default function PersonalData() {
+export const PersonalData = () => {
   return (
-    <Container>
-      <NameField >
-        Ege Nerse
-      </NameField>
-      <Header>
+    <div className="flex flex-col items-center justify-center m-2">
+      <div className="text-2xl font-bold mb-2">Ege Nerse</div>
+      <div className="text-lg mb-2">
         Munich, Germany —{" "}
         <a href="mailto:egenerse@gmail.com">egenerse@gmail.com</a> — (+49) 157
         34886998
-      </Header>
+      </div>
       <div>
         <a
           href="https://www.linkedin.com/in/ege-nerse-b81aba115/"
@@ -41,6 +19,6 @@ export default function PersonalData() {
           Github
         </a>
       </div>
-    </Container>
+    </div>
   );
 }

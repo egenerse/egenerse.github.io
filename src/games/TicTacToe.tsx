@@ -1,30 +1,7 @@
 import React, { useState } from "react";
-import styled from "@emotion/styled";
 import ResetButton from "./components/ResetButton";
 import GameContainer from "./components/GameContainer";
 import Header from "./components/Header";
-
-const Status = styled.div`
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-`;
-
-const BoardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  gap: 5px;
-`;
-
-const SquareButton = styled.button<{ isWinningSquare: boolean }>`
-  width: 100px;
-  height: 100px;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${(props) =>
-    props.isWinningSquare ? "lightgreen" : "white"};
-`;
 
 interface SquareProps {
   value: string | null;
@@ -34,9 +11,14 @@ interface SquareProps {
 
 const Square: React.FC<SquareProps> = ({ value, onClick, isWinningSquare }) => {
   return (
-    <SquareButton onClick={onClick} isWinningSquare={isWinningSquare}>
+    <button 
+      onClick={onClick} 
+      className={`w-24 h-24 text-2xl flex items-center justify-center ${
+        isWinningSquare ? 'bg-green-200' : 'bg-white'
+      }`}
+    >
       {value}
-    </SquareButton>
+    </button>
   );
 };
 
@@ -46,7 +28,7 @@ const Board: React.FC<{
   winningSquares: number[];
 }> = ({ squares, onClick, winningSquares }) => {
   return (
-    <BoardContainer>
+    <div className="grid grid-cols-3 gap-1.5">
       {squares.map((square, i) => (
         <Square
           key={i}
@@ -55,7 +37,7 @@ const Board: React.FC<{
           isWinningSquare={winningSquares.includes(i)}
         />
       ))}
-    </BoardContainer>
+    </div>
   );
 };
 
@@ -97,7 +79,7 @@ const TicTacToe: React.FC = () => {
   return (
     <GameContainer>
       <Header title="Tic Tac Toe" />
-      <Status>{status}</Status>
+      <div className="mb-4 text-2xl">{status}</div>
       <Board
         squares={squares}
         onClick={handleClick}

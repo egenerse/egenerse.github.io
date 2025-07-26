@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled from "@emotion/styled";
 import ResetButton from "./components/ResetButton";
 import GameContainer from "./components/GameContainer";
 import Header from "./components/Header";
@@ -10,33 +9,6 @@ interface Card {
   isFlipped: boolean;
   isMatched: boolean;
 }
-
-const Board = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  margin: 20px auto;
-  justify-content: center;
-  width: calc(100vw - 40px); /* Ensure some padding inside the container */
-  max-width: 800px; /* Optional: to limit the maximum width */
-`;
-
-const CardButton = styled.button<{
-  isFlipped: boolean;
-  isMatched: boolean;
-  gameHasFinished: boolean;
-}>`
-  width: 100px;
-  height: 100px;
-  font-size: 24px;
-  background-color: ${({ isFlipped, isMatched, gameHasFinished }) =>
-    gameHasFinished ? "#00FF00" : isFlipped || isMatched ? "#f0f0f0" : "#fff"};
-  border: 1px solid #000;
-  cursor: ${({ isMatched }) => (isMatched ? "default" : "pointer")};
-  &:disabled {
-    cursor: not-allowed;
-  }
-`;
 
 const MemoryGame: React.FC = () => {
   const [board, setBoard] = useState(createNewGame());
@@ -113,20 +85,26 @@ const MemoryGame: React.FC = () => {
   return (
     <GameContainer>
       <Header title="Memory" />
-      <Board>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2.5 my-5 mx-auto justify-center w-[calc(100vw-40px)] max-w-3xl">
         {board.map((card, index) => (
-          <CardButton
+          <button
             key={index}
             onClick={() => handleCardClick(index)}
-            isFlipped={card.isFlipped}
-            isMatched={card.isMatched}
             disabled={isCheckingRef.current || card.isMatched}
-            gameHasFinished={gameHasFinished}
+            className={`w-24 h-24 text-2xl border border-black ${
+              gameHasFinished 
+                ? 'bg-green-500' 
+                : card.isFlipped || card.isMatched 
+                  ? 'bg-gray-100' 
+                  : 'bg-white'
+            } ${
+              card.isMatched ? 'cursor-default' : 'cursor-pointer'
+            } disabled:cursor-not-allowed`}
           >
             {card.isFlipped || card.isMatched ? card.pairId : ""}
-          </CardButton>
+          </button>
         ))}
-      </Board>
+      </div>
 
       <ResetButton onClick={handleReset} />
     </GameContainer>
