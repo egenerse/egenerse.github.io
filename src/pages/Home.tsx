@@ -16,12 +16,7 @@ export const Home: React.FC = () => {
       </Section>
 
       <Section id="experiences" variant="primary">
-        <div className="w-full max-w-6xl px-8">
-          <Text variant="heading" className="text-center mb-12">
-            Experience
-          </Text>
-          <Experiences />
-        </div>
+        <Experiences />
       </Section>
 
       <Section id="games" variant="secondary">
