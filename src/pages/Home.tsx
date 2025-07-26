@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  MiniGames,
-  Experiences,
-  Section,
-  Text,
-  Contact,
-  About,
-} from "@/components";
+import { Experiences, Section, Contact, About } from "@/components";
+import { useScrollToSection } from "@/hooks";
 
 export const Home: React.FC = () => {
+  useScrollToSection();
+
   return (
     <main className="flex flex-col items-center justify-center" id="home">
       <Section id="about" variant="secondary">
@@ -19,16 +15,7 @@ export const Home: React.FC = () => {
         <Experiences />
       </Section>
 
-      <Section id="games" variant="secondary">
-        <div className="w-full max-w-6xl px-8">
-          <Text variant="heading" className="text-center mb-12">
-            Mini Games
-          </Text>
-          <MiniGames />
-        </div>
-      </Section>
-
-      <Section id="contact" variant="primary" className="min-h-0.5">
+      <Section id="contact" variant="secondary" className="min-h-0.5">
         <Contact />
       </Section>
     </main>

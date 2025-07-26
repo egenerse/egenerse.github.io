@@ -6,4 +6,3 @@ export * from "./ThemeToggle";
 export * from "./Navbar";
 export * from "./Contact";
 export * from "./Experiences";
-export * from "./MiniGames";
